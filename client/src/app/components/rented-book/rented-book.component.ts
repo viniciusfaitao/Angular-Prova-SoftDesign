@@ -36,6 +36,7 @@ export class RentedBookComponent implements OnInit {
       .then(
         (books: Book[]) => {
           this.books = books;
+          this.getRentedBooks();
           alert('Livro está disponivel novamente!!');
         },
         (err) => console.log(err)
