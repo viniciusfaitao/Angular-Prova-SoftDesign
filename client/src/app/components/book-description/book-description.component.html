@@ -1,0 +1,22 @@
+<div class="moldura">
+  <div class="bg-dark text-white backgroundTitulo ">
+    <button [disabled]="isDisabled" class="btn btn-danger botaoExcluir" [routerLink]="['/livros']"
+      (click)="delBook(book.id)"><i class="far fa-trash-alt"></i></button>
+    <div class="tituloNome">
+      {{book?.name}}
+    </div>
+  </div>
+  <div class="backgroundImg">
+    <img class="img" [src]="book?.image">
+  </div>
+  <div class="">
+    <div class="fonte">Tipo - {{book?.type}}</div>
+    <div class="fonte">Ano - {{book?.year}}</div>
+    <div class="description">Descrição - {{book?.description}}</div>
+  </div>
+  <button [disabled]="isDisabled" (click)="saveNewRentedBook(id)" class="btn btn-alugar">Alugar</button>
+  <div class="" style="float:left;">
+    <button [routerLink]="['/livros']" class="btn btn-detalhe marginsBtn">Voltar</button>
+    <button [disabled]="isDisabled" [routerLink]="['/livros/editar', book.id]" class="btn btn-detalhe">Editar</button>
+  </div>
+</div>

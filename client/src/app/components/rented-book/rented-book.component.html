@@ -1,0 +1,24 @@
+<input class="positionCampoBusca" type="text" [(ngModel)]="searchText" placeholder=" Pesquisar Livro">
+<div>
+  <div *ngIf="(books | filter: searchText).length > 0; else noResults">
+    <div class="livros moldura" *ngFor="let book of books | filter: searchText; let i = index">
+      <button class="btn btn-danger btn-deletar" (click)="delRentedBook(book.id)"><i
+          class="far fa-trash-alt"></i></button>
+      <div class="bg-dark text-white backgroundTitulo">
+        <div class="tituloNome">
+          {{book.name}}
+        </div>
+      </div>
+      <div class="backgroundImg">
+        <img class="img" [src]="book.image">
+      </div>
+      <div class="fonte">
+        <div>Tipo</div>
+        <div>{{book.type}}</div>
+        <div>Ano</div>
+        <div>{{book.year}}</div>
+      </div>
+      <a [routerLink]="['/livros/descricao', book.id]" class="btn btn-detalhe btn-block positionBotaoEd">Detalhes</a>
+    </div>
+  </div>
+</div>
